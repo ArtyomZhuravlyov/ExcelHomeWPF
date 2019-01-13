@@ -5,8 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ExcelHomeWPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="MainWindow" Height="156.073" Width="254.037" ResizeMode="NoResize" Visibility="Visible" Closed="Window_Closed">
+    <Grid Margin="0,0,523,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="181*"/>
+        </Grid.RowDefinitions>
+        <ListBox x:Name="ListBox1" HorizontalAlignment="Stretch" Height="130" Margin="-1,-1,-241,-2" VerticalAlignment="Stretch" SelectionChanged="ListBox_SelectionChanged" DragEnter="ListBox_DragEnter" AllowDrop="True" Drop="ListBox_Drop" Opacity="100">
+
+            <ListBoxItem Background="LightGray" FontFamily="Pristina" FontSize="22">Перенесите документ</ListBoxItem>
+            <!--<Image x:Name="image1" Height="74" Width="150" RenderTransformOrigin="0.5,0.5" Margin="0" VerticalAlignment="Center" Source="Images\galka.jpg" HorizontalAlignment="Right">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-0.269"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>-->
+        </ListBox>
+
     </Grid>
 </Window>

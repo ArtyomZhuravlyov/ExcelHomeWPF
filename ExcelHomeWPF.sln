@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.106
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcelHomeWPF", "ExcelHomeWPF\ExcelHomeWPF.csproj", "{18AF4515-16D2-4268-A550-FFB715F5206E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "excel", "..\..\..\Documents\Visual Studio 2017\Projects\Excel_charts\Excel\excel\excel.csproj", "{647E1AA9-8F3B-4625-B2E7-0DEBA0E622F8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{18AF4515-16D2-4268-A550-FFB715F5206E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{18AF4515-16D2-4268-A550-FFB715F5206E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{18AF4515-16D2-4268-A550-FFB715F5206E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{647E1AA9-8F3B-4625-B2E7-0DEBA0E622F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{647E1AA9-8F3B-4625-B2E7-0DEBA0E622F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{647E1AA9-8F3B-4625-B2E7-0DEBA0E622F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{647E1AA9-8F3B-4625-B2E7-0DEBA0E622F8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
