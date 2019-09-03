@@ -62,26 +62,29 @@ namespace ExcelHomeWPF
                        Type.Missing, Type.Missing);
 
             worksheets = workbook.Worksheets; //приписали список всех листов выбранной книги
-            worksheet = (Excel.Worksheet)worksheets.get_Item(3); //взяли конкретный лист
+            worksheet = (Excel.Worksheet)worksheets.get_Item(1); //взяли конкретный лист
             
             //cells1 = worksheet.get_Range("С16", "С16"); //откуда смотрим ячейки
-            cells1 = worksheet.get_Range("I16", "I420"); 
-            cells2 = worksheet.get_Range("C16", "C16"); //для проверки на конец файла
-            cells1.Formula = "=C16 * F16";
+            cells1 = worksheet.get_Range("K4", "K460"); //содержит цену за шкуку
+            cells2 = worksheet.get_Range("E4", "E4"); //для проверки на конец файла//ячейка с которой начинаем смотереть
+            cells1.Formula = "=E4 * F4";
             int countEmpty = 0;
             int temp = 1;
             int ss = 0;
 
+//#if DEBUG
+//            excelapp.Visible = true;
+//#endif
             // cells1[430, 1].Value2 = cells1[430, 1].Value2 ?? 0; //для определения пустых ячеек в них null(скорее всего)
             // MessageBox.Show(cells1[430, 1].Value2.ToString(), "пустая");
 
             int i=1;
-            for ( i = 1; i < 430 && countEmpty < 7; i++)
+            for ( i = 1; i < 500 && countEmpty < 7; i++)
             {
                 //  проверка на пустые клетки(конец файла)
                 if (cells2[i, 1].Value2 == null)
                 {
-                 //   cells1[i, 1].Value2 = cells1[i, 1].Value2 ?? 0;
+                    //   cells1[i, 1].Value2 = cells1[i, 1].Value2 ?? 0;
                     countEmpty++;
                 }
                 else
@@ -90,16 +93,29 @@ namespace ExcelHomeWPF
                 }
 
 
-             //   cells1[i, 1].Value2 = cells1[i, 1].Value2 ?? 0; //для определения пустых ячеек в них null(скорее всего)
-                if (cells1[i, 1].Value2 < 0) cells1[i, 1].Value2 = 0; //если в ячейке #знач! то там лежит макс отрииц число для int32
+                //   cells1[i, 1].Value2 = cells1[i, 1].Value2 ?? 0; //для определения пустых ячеек в них null(скорее всего)
+                if (cells1[i, 1].Value2 < 0)
+                    cells1[i, 1].Value2 = 0; //если в ячейке #знач! то там лежит макс отрииц число для int32
             }
 
-            cells2 = worksheet.get_Range("J421", "K422");
+            i += 5; //для большего отсупа в конце документа
+
+            //cells2 = worksheet.get_Range("J" + (i-5).ToString(), "K" + (i-4).ToString());
+            //cells2.Merge(Type.Missing);
+            //cells2.Value2 = "Итог";
+            //cells2.get_Characters(1, 10).Font.Size = 24;
+
+            //cells2 = worksheet.get_Range("J" + (i-3).ToString(), "K" + (i-2).ToString());
+
+            //объединение ячеек для подписи
+            cells2 = worksheet.get_Range("J" + (i).ToString(), "K" + (i +2).ToString());
             cells2.Merge(Type.Missing);
             cells2.Value2 = "Итог";
             cells2.get_Characters(1, 10).Font.Size = 24;
 
-            cells2 = worksheet.get_Range("J423", "K424");
+            //объединение ячеек для значения    
+            cells2 = worksheet.get_Range("J" + (i +3).ToString(), "K" + (i +4).ToString());
+
             cells2.Merge(Type.Missing);
             //Устанавливаем цвет обводки
             cells2.Borders.ColorIndex = 3;
@@ -120,7 +136,8 @@ namespace ExcelHomeWPF
 
 
             //cells2.NumberFormat = "$0.00";
-            cells2.Formula = "=SUM(I16:I" + (i+15-8).ToString() +")";
+            //Будем писать в K столбец
+            cells2.Formula = "=SUM(K4:K" + (i+15-8).ToString() +")";
             //cells2 = worksheet.get_Range("H16", "H16");
             //cells2.Formula = "=SUM(C16:C20)";
 
